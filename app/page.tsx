@@ -1,5 +1,12 @@
+import dynamic from "next/dynamic";
 import Layout from "./ui/components/Layout/Layout";
-import MainDash from "./ui/components/MainDash";
+
+const MainDash = dynamic(
+  () => {
+    return import("./ui/components/MainDash");
+  },
+  { ssr: false }
+);
 
 export default function Home() {
   return (

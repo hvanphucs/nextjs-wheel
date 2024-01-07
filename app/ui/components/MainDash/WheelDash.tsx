@@ -17,7 +17,7 @@ const WheelDash = () => {
     .map((_, index) => {
       return {
         option: `Value-${index}`,
-        style: { backgroundColor: "", textColor: "width" },
+        style: { backgroundColor: "", textColor: "#fff" },
       };
     });
 
