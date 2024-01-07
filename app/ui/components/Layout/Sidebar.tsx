@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useRef } from "react";
-import { clsx as classNames } from "clsx";
-import Link from "next/link";
+import { clsx } from "clsx";
 import Image from "next/image";
-import { defaultNavItems } from "./defaultNavItems";
+import Link from "next/link";
+import React, { useRef } from "react";
 import { useOnClickOutside } from "usehooks-ts";
+import { defaultNavItems } from "./defaultNavItems";
 // define a NavItem prop
 export type NavItem = {
   label: string;
@@ -20,18 +20,21 @@ type Props = {
 };
 const Sidebar = ({ open, navItems = defaultNavItems, setOpen }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
+
   useOnClickOutside(ref, (e) => {
     setOpen(false);
   });
+
   return (
     <div
-      className={classNames({
+      className={clsx({
         "flex flex-col justify-between": true, // layout
         "bg-indigo-700 text-zinc-50": true, // colors
         "md:w-full md:sticky md:top-16 md:z-0 top-0 z-20 fixed": true, // positioning
         "md:h-[calc(100vh_-_64px)] h-full w-[300px]": true, // for height and width
         "transition-transform .3s ease-in-out md:-translate-x-0": true, //animations
-        "-translate-x-full ": !open, //hide sidebar to the left when closed
+        "-translate-x-full ": !open,
+        hidden: !open, //hide sidebar to the left when closed
       })}
       ref={ref}
     >
@@ -42,7 +45,7 @@ const Sidebar = ({ open, navItems = defaultNavItems, setOpen }: Props) => {
             return (
               <Link key={index} href={item.href}>
                 <li
-                  className={classNames({
+                  className={clsx({
                     "text-indigo-100 hover:bg-indigo-900": true, //colors
                     "flex gap-4 items-center ": true, //layout
                     "transition-colors duration-300": true, //animation
