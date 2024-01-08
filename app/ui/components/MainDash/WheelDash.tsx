@@ -80,7 +80,7 @@ const WheelDash = () => {
   };
 
   const toastPrize = () => {
-    let count = 10;
+    let count = 0;
     intervalRef.current = setInterval(() => {
       count++;
       if (count > 10) {
@@ -88,7 +88,7 @@ const WheelDash = () => {
       }
       confettiReward();
       balloonsReward();
-    }, 1000);
+    }, 500);
   };
 
   return (
@@ -130,7 +130,7 @@ const WheelDash = () => {
             setSpinDuration(parseFloat(value));
           }}
         />
-        <div className="w-full flex justify-center">
+        <div className="w-full flex justify-center z-10">
           <span id="confettiReward" />
           <span id="balloonsReward" />
         </div>
