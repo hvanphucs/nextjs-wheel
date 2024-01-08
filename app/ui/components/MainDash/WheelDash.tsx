@@ -17,7 +17,7 @@ const WheelDash = () => {
   const { reward: confettiReward, isAnimating: isConfettiAnimating } =
     useReward("confettiReward", "confetti", { lifetime: 5000, zIndex: 100 });
   const { reward: balloonsReward, isAnimating: isBalloonsAnimating } =
-    useReward("balloonsReward", "balloons");
+    useReward("balloonsReward", "balloons", { lifetime: 5000, zIndex: 100 });
 
   const intervalRef = useRef<any>();
   const [wheelConfig, setWheelConfig] = useState<Record<string, any>>({
