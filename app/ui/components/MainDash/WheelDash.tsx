@@ -15,9 +15,9 @@ const WheelDash = () => {
   const [play, { stop }] = useSound(wheelSoundFile);
   const [spinDuration, setSpinDuration] = useState(1.45);
   const { reward: confettiReward, isAnimating: isConfettiAnimating } =
-    useReward("confettiReward", "confetti", { lifetime: 5000, zIndex: 100 });
+    useReward("confettiReward", "confetti", { lifetime: 1000, zIndex: 100 });
   const { reward: balloonsReward, isAnimating: isBalloonsAnimating } =
-    useReward("balloonsReward", "balloons", { lifetime: 5000, zIndex: 100 });
+    useReward("balloonsReward", "balloons", { lifetime: 1000, zIndex: 100 });
 
   const intervalRef = useRef<any>();
   const [wheelConfig, setWheelConfig] = useState<Record<string, any>>({
